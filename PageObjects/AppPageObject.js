@@ -29,6 +29,11 @@ class AppPageObject
         this.addToCartButton = newPage.locator('#add-to-cart-button');
         await this.addToCartButton.nth(0).click();
     }
+
+    async getProductPrice(newPage) {
+        this.productPrice = newPage.locator("span[class='a-price sw-subtotal-amount'] span[class='a-price-whole']");
+        return await this.productPrice.textContent();
+    }
 }
 
 

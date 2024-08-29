@@ -13,7 +13,9 @@ test.only('BasicTest', async({browser})=>
         context.waitForEvent('page'),
         appPageObject.getProduct(),
       ]);
-      await page.close();
-      appPageObject.addToCart(newPage);
-      await newPage.pause();
+    await page.close();
+    appPageObject.addToCart(newPage);
+    const price = await appPageObject.getProductPrice(newPage);
+   // console.log(price);
+   // await newPage.pause();
 })
