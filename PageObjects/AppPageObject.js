@@ -1,12 +1,10 @@
+const Locators = require('./Locators');
 class AppPageObject
 {
     constructor(page)
     {
         this.page = page;
-        this.searchString = page.locator("#twotabsearchtextbox");
-        this.selectProduct= page.locator("[class='left-pane-results-container'] [aria-label='titan watch']");
-        this.productDetails = page.locator("[class='s-image']");
-
+        this.locators = new Locators(page);
     }
 
    async goto()
@@ -16,23 +14,27 @@ class AppPageObject
 
     async SearchProduct()
     {
-        await this.searchString.type('Titan Watch', {delay:100});
-        await this.selectProduct.click();
-
+        await this.locators.searchString.type('Titan Watch', {delay:100});
+        await this.locators.selectProduct.click();
     }
 
     async getProduct() {
-        await this.productDetails.first().click();
+        await this.locators.productDetails.first().click();
     }
 
     async addToCart(newPage) {
-        this.addToCartButton = newPage.locator('#add-to-cart-button');
-        await this.addToCartButton.nth(0).click();
+        const newLocators = new Locators(newPage);
+        await newLocators.addToCartButton.nth(0).click();
     }
 
     async getProductPrice(newPage) {
-        this.productPrice = newPage.locator("span[class='a-price sw-subtotal-amount'] span[class='a-price-whole']");
-        return await this.productPrice.textContent();
+        const newLocators = new Locators(newPage);
+        return await newLocators.productPrice.textContent();
+    }
+
+    async proceedToCheckout(newPage) {
+        const newLocators = new Locators(newPage);
+        await newLocators.checkoutButton.click();
     }
 }
 

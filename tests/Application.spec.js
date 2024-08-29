@@ -17,5 +17,6 @@ test.only('BasicTest', async({browser})=>
     appPageObject.addToCart(newPage);
     const price = await appPageObject.getProductPrice(newPage);
    // console.log(price);
-   // await newPage.pause();
+   await appPageObject.proceedToCheckout(newPage)
+   await newPage.pause();
 })
