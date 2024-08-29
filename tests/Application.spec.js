@@ -1,9 +1,11 @@
 const {test} = require('@playwright/test');
+const {AppPageObject} = require('../PageObjects/AppPageObject');
 
 test('BasicTest', async({browser})=>
 {
 
     const context =  await browser.newContext();
     const page = await context.newPage();
-    await page.goto('https://www.amazon.in/');
+    const appPageObject = new AppPageObject(page);
+    await appPageObject.goto();
 })
