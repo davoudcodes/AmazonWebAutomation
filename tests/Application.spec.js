@@ -1,7 +1,7 @@
 const {test} = require('@playwright/test');
 const {AppPageObject} = require('../PageObjects/AppPageObject');
 
-test('BasicTest', async({browser})=>
+test.only('BasicTest', async({browser})=>
 {
 
     const context =  await browser.newContext();
@@ -9,4 +9,10 @@ test('BasicTest', async({browser})=>
     const appPageObject = new AppPageObject(page);
     await appPageObject.goto();
     await appPageObject.SearchProduct();
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'),
+        appPageObject.getProduct(),
+      ]);
+      await page.close();
+      await newPage.pause();
 })

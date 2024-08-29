@@ -5,6 +5,7 @@ class AppPageObject
         this.page = page;
         this.searchString = page.locator("#twotabsearchtextbox");
         this.selectProduct= page.locator("[class='left-pane-results-container'] [aria-label='titan watch']");
+        this.productDetails = page.locator("[class='s-image']");
 
     }
 
@@ -18,6 +19,10 @@ class AppPageObject
         await this.searchString.type('Titan Watch', {delay:100});
         await this.selectProduct.click();
 
+    }
+
+    async getProduct() {
+        await this.productDetails.first().click();
     }
 }
 
