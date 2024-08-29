@@ -14,5 +14,6 @@ test.only('BasicTest', async({browser})=>
         appPageObject.getProduct(),
       ]);
       await page.close();
+      appPageObject.addToCart(newPage);
       await newPage.pause();
 })

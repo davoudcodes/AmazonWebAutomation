@@ -24,6 +24,11 @@ class AppPageObject
     async getProduct() {
         await this.productDetails.first().click();
     }
+
+    async addToCart(newPage) {
+        this.addToCartButton = newPage.locator('#add-to-cart-button');
+        await this.addToCartButton.nth(0).click();
+    }
 }
 
 
