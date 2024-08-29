@@ -1,0 +1,22 @@
+{
+  "name": "amazonwebautomation",
+  "version": "1.0.0",
+  "description": "End to End flow of searching, selecting, adding and finally checking-out a product on the mentioned E-Commerce Application",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davoudcodes/AmazonWebAutomation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davoudcodes/AmazonWebAutomation/issues"
+  },
+  "homepage": "https://github.com/davoudcodes/AmazonWebAutomation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.5.1"
+  }
+}
