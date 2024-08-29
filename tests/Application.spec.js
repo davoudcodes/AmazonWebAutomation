@@ -8,4 +8,5 @@ test('BasicTest', async({browser})=>
     const page = await context.newPage();
     const appPageObject = new AppPageObject(page);
     await appPageObject.goto();
+    await appPageObject.SearchProduct();
 })
